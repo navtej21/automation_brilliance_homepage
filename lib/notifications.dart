@@ -22,16 +22,16 @@ class _NotificationState extends State<Notifications> {
       ),
       body: items.isEmpty
           ? Center(
-              child: Text("No notifications available."),
-            )
+        child: Text("No notifications available."),
+      )
           : ListView.builder(
-              itemCount: items.length,
-              itemBuilder: (context, index) {
-                return ListTile(
-                  title: Text(items[index]),
-                );
-              },
-            ),
+        itemCount: items.length,
+        itemBuilder: (context, index) {
+          return ListTile(
+            title: Text(items[index]),
+          );
+        },
+      ),
     );
   }
 }
