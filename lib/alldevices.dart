@@ -1,24 +1,18 @@
 import 'package:flutter/material.dart';
 
-class AllDevices extends StatefulWidget {
-  const AllDevices({Key? key}) : super(key: key);
+class Devices extends StatelessWidget {
+  final String devicename;
+  final String iconpath;
 
-  @override
-  State<AllDevices> createState() => _AllDevicesState();
-}
+  // Corrected constructor
+  const Devices({Key? key, required this.devicename, required this.iconpath})
+      : super(key: key);
 
-class _AllDevicesState extends State<AllDevices> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(
-        child: Text(
-          "All Devices",
-          style: TextStyle(
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-      ),
-    );
+    return Container(
+        child: Column(
+      children: [Image.asset(iconpath, height: 45), Text(devicename)],
+    ));
   }
 }
