@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "614031730295",
+    "project_id": "automation-brilliance-2cebf",
+    "storage_bucket": "automation-brilliance-2cebf.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:614031730295:android:423b6f43e3c48795dc8872",
+        "android_client_info": {
+          "package_name": "com.example.automation_brilliance_homepage"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAcSg5m_3SQsobOqsnYYu1ISPPUL_9V8oo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -3,8 +3,19 @@
 import 'package:automation_brilliance_homepage/VoiceScreen.dart';
 import 'package:automation_brilliance_homepage/homepage.dart';
 import 'package:flutter/material.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'dart:io';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  Platform.isAndroid
+      ? await Firebase.initializeApp(
+          options: const FirebaseOptions(
+              apiKey: 'AIzaSyAcSg5m_3SQsobOqsnYYu1ISPPUL_9V8oo',
+              appId: '1:614031730295:android:423b6f43e3c48795dc8872',
+              messagingSenderId: '614031730295',
+              projectId: 'automation-brilliance-2cebf'))
+      : await Firebase.initializeApp();
   runApp(const MyApp());
 }
 
