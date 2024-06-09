@@ -6,6 +6,7 @@ import 'package:automation_brilliance_homepage/HomePage.dart';
 import 'package:automation_brilliance_homepage/riverpod/Appliance.dart';
 import 'package:automation_brilliance_homepage/riverpod/provider.dart';
 import 'package:flutter/material.dart';
+<<<<<<< HEAD
 import 'package:provider/provider.dart';
 
 void main() {
@@ -22,6 +23,22 @@ void main() {
       child: MyApp(),
     ),
   );
+=======
+import 'package:firebase_core/firebase_core.dart';
+import 'dart:io';
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  Platform.isAndroid
+      ? await Firebase.initializeApp(
+          options: const FirebaseOptions(
+              apiKey: 'AIzaSyAcSg5m_3SQsobOqsnYYu1ISPPUL_9V8oo',
+              appId: '1:614031730295:android:423b6f43e3c48795dc8872',
+              messagingSenderId: '614031730295',
+              projectId: 'automation-brilliance-2cebf'))
+      : await Firebase.initializeApp();
+  runApp(const MyApp());
+>>>>>>> e56873bce1e5bdeaabccec20038f55a1cca90498
 }
 
 class MyApp extends StatelessWidget {
