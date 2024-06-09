@@ -6,18 +6,28 @@ class Appliance extends StatefulWidget {
   final String iconpath;
   final bool poweron;
   void Function(bool)? onchanged;
-  Appliance(
-      {super.key,
-      required this.devicename,
-      required this.iconpath,
-      required this.poweron,
-      required this.onchanged});
+
+  Appliance({
+    Key? key,
+    required this.devicename,
+    required this.iconpath,
+    required this.poweron,
+    required this.onchanged,
+  }) : super(key: key);
 
   @override
-  State<Appliance> createState() => _ApplianceState();
+  _ApplianceState createState() => _ApplianceState();
 }
 
 class _ApplianceState extends State<Appliance> {
+  late bool _isSwitched = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _isSwitched = widget.poweron;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -25,9 +35,7 @@ class _ApplianceState extends State<Appliance> {
       child: Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(24),
-          color: widget.poweron
-              ? Colors.grey[900]
-              : Color.fromARGB(44, 164, 167, 189),
+          color: Color.fromARGB(44, 164, 167, 189),
         ),
         child: Padding(
           padding: const EdgeInsets.symmetric(vertical: 25.0),
@@ -38,29 +46,47 @@ class _ApplianceState extends State<Appliance> {
               Image.asset(
                 widget.iconpath,
                 height: 65,
-                color: widget.poweron ? Colors.white : Colors.grey.shade700,
+                color: Colors.black,
               ),
-
-              // smart device name + switch
-              Row(
-                children: [
-                  Expanded(
-                    child: Padding(
-                      padding: const EdgeInsets.only(left: 25.0),
-                      child: Text(
-                        widget.devicename,
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 20,
-                          color: widget.poweron ? Colors.white : Colors.black,
+              GestureDetector(
+                onTap: () {
+                  setState(() {
+                    _isSwitched = !_isSwitched;
+                    if (widget.onchanged != null) {
+                      widget.onchanged!(_isSwitched);
+                    }
+                  });
+                },
+                // smart device name + switch
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: Padding(
+                        padding: const EdgeInsets.only(left: 25.0),
+                        child: Text(
+                          widget.devicename,
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 20,
+                            color: Colors.black,
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                  CupertinoSwitch(
-                      value: widget.poweron, onChanged: widget.onchanged)
-                ],
-              )
+                    CupertinoSwitch(
+                      value: _isSwitched,
+                      onChanged: (value) {
+                        setState(() {
+                          _isSwitched = value;
+                          if (widget.onchanged != null) {
+                            widget.onchanged!(_isSwitched);
+                          }
+                        });
+                      },
+                    ),
+                  ],
+                ),
+              ),
             ],
           ),
         ),

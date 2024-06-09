@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "892602934255",
+    "firebase_url": "https://automationbrilliance-161c1-default-rtdb.firebaseio.com",
+    "project_id": "automationbrilliance-161c1",
+    "storage_bucket": "automationbrilliance-161c1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:892602934255:android:d51be30562d79563cd4c1a",
+        "android_client_info": {
+          "package_name": "com.example.automation_brilliance_homepage"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAtJkAAEVbEDngPAvOhpfCX0eYqj3gwiYU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

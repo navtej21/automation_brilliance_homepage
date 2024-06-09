@@ -1,11 +1,27 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
 
+import 'package:automation_brilliance_homepage/AllRoomDevices.dart';
 import 'package:automation_brilliance_homepage/VoiceScreen.dart';
-import 'package:automation_brilliance_homepage/homepage.dart';
+import 'package:automation_brilliance_homepage/HomePage.dart';
+import 'package:automation_brilliance_homepage/riverpod/Appliance.dart';
+import 'package:automation_brilliance_homepage/riverpod/provider.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(
+          create: (_) => RoomState(),
+        ),
+        ChangeNotifierProvider(
+          create: (_) => ApplianceState(),
+        )
+      ],
+      child: MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -48,15 +64,28 @@ class _BottomNavigationDemoState extends State<BottomNavigationDemo> {
         },
         items: [
           BottomNavigationBarItem(
-            icon: Icon(Icons.home),
+            icon: Icon(
+              Icons.home,
+              size: 35,
+              weight: 15,
+              color: Color.fromARGB(255, 132, 46, 87),
+            ),
             label: 'Home',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.mic),
+            icon: Icon(
+              Icons.mic,
+              size: 35,
+              weight: 15,
+              color: Color.fromARGB(255, 132, 46, 87),
+            ),
             label: 'Voice',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.crop_square),
+            icon: CircleAvatar(
+              child: Image.asset("lib/uimage/smart.png"),
+              backgroundColor: Color.fromARGB(255, 132, 46, 87),
+            ),
             label: 'Smart',
           ),
         ],

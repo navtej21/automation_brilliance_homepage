@@ -1,4 +1,4 @@
-import 'package:automation_brilliance_homepage/homepage.dart';
+import 'package:automation_brilliance_homepage/HomePage.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatelessWidget {
